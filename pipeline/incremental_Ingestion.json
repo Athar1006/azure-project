@@ -133,9 +133,55 @@
 			{
 				"name": "If Condition1",
 				"type": "IfCondition",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "AZURE_TO_ADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
+					"expression": {
+						"value": "@greater(activity('AZURE_TO_ADLS').output.dataRead, 0) ",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Delete_empty_file",
+							"type": "Delete",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "Parquet_dynamic",
+									"type": "DatasetReference",
+									"parameters": {
+										"container": "bronze",
+										"folder": {
+											"value": "@pipeline().parameters.TABLE",
+											"type": "Expression"
+										},
+										"file": "@concat(pipeline().parameters.TABLE,'_',variables('current'))"
+									}
+								},
+								"enableLogging": false,
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "update_last_cdc",
