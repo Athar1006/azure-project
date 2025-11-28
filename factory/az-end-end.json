@@ -1,0 +1,9 @@
+{
+	"name": "az-end-end",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5c7ae115-6432-4f14-af8e-d3c10511c9ba",
+		"tenantId": "060653b4-2d72-4192-a426-181d567faeb6"
+	}
+}
