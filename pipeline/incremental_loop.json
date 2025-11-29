@@ -81,7 +81,7 @@
 										"container": "bronze",
 										"folder": "users ",
 										"file": {
-											"value": "@concat(pipeline().parameters.TABLE,'_',variables('current'))",
+											"value": "@concat(item().TABLE,'_',variables('current'))",
 											"type": "Expression"
 										}
 									}
@@ -322,7 +322,38 @@
 		"parameters": {
 			"loop_input": {
 				"type": "array",
-				"defaultValue": "[   {     \"SCHEMA\" : \"dbo\",     \"TABLE\" : \"DimUser\"     \"CDC_COL\" : \"updated_at\"     \"fromdate\" : \"\"   },    {     \"SCHEMA\" : \"dbo\",     \"TABLE\" : \"DimTrack\"     \"CDC_COL\" : \"updated_at\"     \"fromdate\" : \"\"   },    {     \"SCHEMA\" : \"dbo\",     \"TABLE\" : \"DimArtist\"     \"CDC_COL\" : \"updated_at\"     \"fromdate\" : \"\"   },    {     \"SCHEMA\" : \"dbo\",     \"TABLE\" : \"DimDate\"     \"CDC_COL\" : \"updated_at\"     \"fromdate\" : \"\"   },    {     \"SCHEMA\" : \"dbo\",     \"TABLE\" : \"FactStream\"     \"CDC_COL\" : \"updated_at\"     \"fromdate\" : \"\"   } ]"
+				"defaultValue": [
+					{
+						"SCHEMA": "dbo",
+						"TABLE": "DimUser",
+						"CDC_COL": "updated_at",
+						"fromdate": ""
+					},
+					{
+						"SCHEMA": "dbo",
+						"TABLE": "DimTrack",
+						"CDC_COL": "updated_at",
+						"fromdate": ""
+					},
+					{
+						"SCHEMA": "dbo",
+						"TABLE": "DimArtist",
+						"CDC_COL": "updated_at",
+						"fromdate": ""
+					},
+					{
+						"SCHEMA": "dbo",
+						"TABLE": "DimDate",
+						"CDC_COL": "updated_at",
+						"fromdate": ""
+					},
+					{
+						"SCHEMA": "dbo",
+						"TABLE": "FactStream",
+						"CDC_COL": "updated_at",
+						"fromdate": ""
+					}
+				]
 			}
 		},
 		"variables": {
