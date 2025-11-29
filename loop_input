@@ -1,36 +1,36 @@
 [
   {
     "SCHEMA" : "dbo",
-    "TABLE" : "DimUser"
-    "CDC_COL" : "updated_at"
+    "TABLE" : "DimUser",
+    "CDC_COL" : "updated_at",
     "fromdate" : ""
   },
 
   {
     "SCHEMA" : "dbo",
-    "TABLE" : "DimTrack"
-    "CDC_COL" : "updated_at"
+    "TABLE" : "DimTrack",
+    "CDC_COL" : "updated_at",
     "fromdate" : ""
   },
 
   {
     "SCHEMA" : "dbo",
-    "TABLE" : "DimArtist"
-    "CDC_COL" : "updated_at"
+    "TABLE" : "DimArtist",
+    "CDC_COL" : "updated_at",
     "fromdate" : ""
   },
 
   {
     "SCHEMA" : "dbo",
-    "TABLE" : "DimDate"
-    "CDC_COL" : "updated_at"
+    "TABLE" : "DimDate",
+    "CDC_COL" : "updated_at",
     "fromdate" : ""
   },
 
   {
     "SCHEMA" : "dbo",
-    "TABLE" : "FactStream"
-    "CDC_COL" : "updated_at"
+    "TABLE" : "FactStream",
+    "CDC_COL" : "updated_at",
     "fromdate" : ""
   }
 ]
