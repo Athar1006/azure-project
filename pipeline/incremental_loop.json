@@ -79,7 +79,10 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"container": "bronze",
-										"folder": "users ",
+										"folder": {
+											"value": "@item().TABLE",
+											"type": "Expression"
+										},
 										"file": {
 											"value": "@concat(item().TABLE,'_',variables('current'))",
 											"type": "Expression"
@@ -181,7 +184,7 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "@{item().TABLE}_cdc",
+														"value": "item().TABLE",
 														"type": "Expression"
 													},
 													"file": {
@@ -275,10 +278,7 @@
 														"value": "@{item().TABLE}_cdc",
 														"type": "Expression"
 													},
-													"FILE": {
-														"value": "@concat(item().TABLE,'',variables('current'))",
-														"type": "Expression"
-													}
+													"FILE": "cdc.json"
 												}
 											}
 										]
@@ -344,13 +344,13 @@
 					{
 						"SCHEMA": "dbo",
 						"TABLE": "DimDate",
-						"CDC_COL": "updated_at",
+						"CDC_COL": "date",
 						"fromdate": ""
 					},
 					{
 						"SCHEMA": "dbo",
 						"TABLE": "FactStream",
-						"CDC_COL": "updated_at",
+						"CDC_COL": "stream_timestamp",
 						"fromdate": ""
 					}
 				]
