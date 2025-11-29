@@ -30,7 +30,7 @@
   {
     "SCHEMA" : "dbo",
     "TABLE" : "FactStream",
-    "CDC_COL" : "updated_at",
+    "CDC_COL" : "stream_timestamp",
     "fromdate" : ""
   }
 ]
