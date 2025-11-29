@@ -25,5 +25,12 @@
     "TABLE" : "DimDate"
     "CDC_COL" : "updated_at"
     "fromdate" : ""
+  },
+
+  {
+    "SCHEMA" : "dbo",
+    "TABLE" : "FactStream"
+    "CDC_COL" : "updated_at"
+    "fromdate" : ""
   }
 ]
