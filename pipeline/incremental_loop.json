@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.loop_input",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "AZURE_TO_ADLS",
@@ -177,10 +181,13 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "@pipeline().parameters.TABLE",
+														"value": "@{item().TABLE}_cdc",
 														"type": "Expression"
 													},
-													"file": "@concat(pipeline().parameters.TABLE,'_',variables('current'))"
+													"file": {
+														"value": "@concat(item().TABLE,'_',variables('current'))",
+														"type": "Expression"
+													}
 												}
 											},
 											"enableLogging": false,
@@ -250,7 +257,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"CONTAINER": "bronze",
-													"FOLDER": "CDC",
+													"FOLDER": {
+														"value": "@{item().TABLE}_cdc",
+														"type": "Expression"
+													},
 													"FILE": "empty.json"
 												}
 											}
